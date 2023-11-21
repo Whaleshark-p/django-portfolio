@@ -1,0 +1,59 @@
+{% load static %}
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <style>@import url('https://fonts.googleapis.com/css2?family=Lexend:wght@300;500&display=swap');</style>
+    
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" type="text/css" href="{% static 'css/output.css' %}" />
+    <title>{% block title %}Base{% endblock title %}</title>
+  </head>
+
+  <body>
+    <div class="flex bg-gradient-to-t from-strato via-meso to-exo">
+      <div class="m-auto min-h-screen w-full grid-cols-3 gap-10 lg:mx-20 lg:mt-20 lg:grid">
+
+        <div class="col-span-2 col-start-2 flex items-center justify-center">
+          <div class="h-4/5 w-full items-center justify-center text-center lg:flex">
+            <div class="mb-1 bg-exo shadow-sm shadow-exo lg:mb-0 lg:h-full lg:w-full lg:px-2 lg:bg-transparent lg:shadow-none">
+              <div class="flex flex-col items-center justify-center py-4 text-white lg:h-full lg:w-full lg:flex-row">
+                <a class="font-lexend m-2 w-3/5 rounded-xl bg-exo-b py-2 text-center shadow-md lg:flex lg:h-1/2 lg:max-h-20 lg:min-h-[3rem] lg:text-xl ] lg:items-center lg:justify-center lg:py-5 {% if request.path == "/" %}shadow-strato{% else %}shadow-strato-a{% endif %}" href="{% url "home" %}">Home</a>
+                <a class="font-lexend m-2 w-3/5 rounded-xl bg-exo-b py-2 text-center shadow-md lg:flex lg:h-1/2 lg:max-h-20 lg:min-h-[3rem] lg:text-xl  lg:items-center lg:justify-center lg:py-5 {% if request.path == "/projecten" %}shadow-strato{% else %}shadow-strato-a{% endif %}" href="{% url "projecten" %}">Projecten</a>
+                <a class="font-lexend m-2 w-3/5 rounded-xl bg-exo-b py-2 text-center shadow-md lg:flex lg:h-1/2 lg:max-h-20 lg:min-h-[3rem] lg:text-xl lg:items-center lg:justify-center  {% if request.path == "/cv" %}shadow-strato{% else %}shadow-strato-a{% endif %} " href="">CV</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-span-1 col-start-1 row-span-6 row-start-1 lg:h-2/5 lg:max-h-[40em] lg:min-h-[30em] lg:sticky lg:top-14">
+          <div class="rounded-b-3xl bg-strato-a shadow-inner shadow-exo lg:h-full lg:w-full lg:rounded-3xl">
+            <div class="grid w-full grid-cols-2 gap-4 px-4 pt-4 lg:h-full lg:grid-cols-1 lg:gap-0">
+              <div class="col-span-2 row-start-1 text-center text-white lg:col-span-1 lg:row-start-2 lg:self-center">
+                <h1 class="text-2xl lg:mb-2 font-lexend">Pieter Etman</h1>
+              </div>
+              <div class="row-start-2 flex flex-col items-start justify-center pb-4 text-white lg:row-start-3 lg:w-full lg:items-center lg:justify-around">
+                <a class="font-lexend m-2 w-full rounded-full bg-gradient-to-r from-exo-a via-meso-a to-strato-a py-2 text-center" target="_blank" href="https://nl.linkedin.com/in/pieter-e-b9b394294">Linkedin</a>
+                <a class="font-lexend m-2 w-full rounded-full bg-gradient-to-r from-exo-a via-meso-a to-strato-a py-2 text-center" target="_blank" href="">Email</a>
+                <a class="font-lexend m-2 w-full rounded-full bg-gradient-to-r from-exo-a via-meso-a to-strato-a py-2 text-center" target="_blank" href="">Telefoon</a>
+              </div>
+              <div class="row-start-2 flex items-center justify-center pb-4 lg:order-first lg:row-start-1">
+                <img class="max-h-40 rounded-full shadow-md shadow-exo lg:h-5/6 lg:max-h-52" src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2d/Jheronimus_Bosch_%28cropped%29.jpg/1200px-Jheronimus_Bosch_%28cropped%29.jpg" alt="" />
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-span-2 col-start-2 row-span-6 row-start-2 lg:-mt-20 lg:h-4/5">
+          <div class="m-4 my-8 rounded-3xl bg-gradient-to-t from-exo-a via-meso-a to-strato-a text-white lg:bg-none lg:h-fit">
+            <div class="p-8 font-lexend font-light">
+              {% block pagecontent %}{% endblock pagecontent %}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

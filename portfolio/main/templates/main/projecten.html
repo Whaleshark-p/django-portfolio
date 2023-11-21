@@ -1,0 +1,23 @@
+{% extends "main/base.html" %}
+
+{% block pagecontent %}
+    <div class="grid grid-cols-2 grid-rows-{{smallw}} lg:grid-cols-3 lg:grid-rows-{{largew}} gap-8">
+        {% for project in projects %}
+
+            {% if project.hyperlink != "" %}
+            <a class="rounded-3xl bg-strato-a p-5 min-w-fit flex flex-col justify-between" target="_blank" href={{project.hyperlink}}>
+                <h2 class="text-center text-l w-full py-2 rounded-full bg-gradient-to-l from-exo-a via-meso-a to-meso-a">{{project.title}}</h2>
+                <img class="m-auto my-5 rounded-xl" src={{project.thumbnail}} />
+                <p class="text-center">{{project.description}}</p>
+            </a>
+            {% else %}
+            <div class="rounded-3xl bg-strato-a p-5 min-w-fit flex flex-col justify-between">
+                <h2 class="text-center text-l w-full py-2 rounded-full bg-gradient-to-l from-exo-a via-meso-a to-meso-a">{{project.title}}</h2>
+                <img class="m-auto my-5 rounded-xl" src={{project.thumbnail}} />
+                <p class="text-center">{{project.description}}</p>
+            </div>
+            {% endif %}
+
+        {% endfor %}
+    </div>
+{% endblock pagecontent %}
